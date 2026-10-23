@@ -52,11 +52,11 @@ window.PLAN_TEMPLATES = {
       "4 × 5–8"
      ],
      [
-      "Cable lateral raise",
+      "Lateral raise",
       "4 × 10–12"
      ],
      [
-      "Seated dumbbell shoulder press",
+      "Shoulder press",
       "3 × 8–10"
      ],
      [
