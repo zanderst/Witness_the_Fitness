@@ -41,7 +41,7 @@ window.PLAN_TEMPLATES = {
     "kind": "rest"
    }
   ],
-  "weekNote": "Alternate Week A and Week B. Week A is squat week, Week B is deadlift and leg press week. Run on Sat or Sun. Warm up each session with a 10 min incline walk: 10–12%, 4.5–6 km/h / 2.8–3.7 mph.",
+  "weekNote": "Alternate Week A and Week B. Week A is squat week, Week B is deadlift and leg press week. Warm up each session with a 10 min incline walk: 10–12%, 4.5–6 km/h / 2.8–3.7 mph.",
   "sessions": [
    {
     "title": "Push",
