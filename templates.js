@@ -7,17 +7,17 @@ window.PLAN_TEMPLATES = {
   "week": [
    {
     "day": "Mon",
-    "label": "Upper A",
+    "label": "Push",
     "kind": "lift"
    },
    {
     "day": "Tue",
-    "label": "Rest",
-    "kind": "rest"
+    "label": "Pull",
+    "kind": "lift"
    },
    {
     "day": "Wed",
-    "label": "Lower + Pull",
+    "label": "Legs + extras",
     "kind": "lift"
    },
    {
@@ -27,7 +27,7 @@ window.PLAN_TEMPLATES = {
    },
    {
     "day": "Fri",
-    "label": "Upper B",
+    "label": "Uppers",
     "kind": "lift"
    },
    {
@@ -41,139 +41,157 @@ window.PLAN_TEMPLATES = {
     "kind": "rest"
    }
   ],
-  "weekNote": "Warm up each session with a 10 min incline walk (10–12%, 4.5–6 km/h / 2.8–3.7 mph).",
+  "weekNote": "Alternate Week A and Week B. Week A is squat week, Week B is deadlift and leg press week. Run on Sat or Sun. Warm up each session with a 10 min incline walk: 10–12%, 4.5–6 km/h / 2.8–3.7 mph.",
   "sessions": [
    {
-    "title": "Upper A",
-    "tag": "Mon · Chest",
+    "title": "Push",
+    "tag": "Mon",
     "rows": [
      [
-      "Incline barbell bench (30°)",
+      "Incline bench press",
       "4 × 5–8"
      ],
      [
-      "Chest-supported row or seated cable row",
-      "3 × 8–12"
+      "Cable lateral raise",
+      "4 × 10–12"
      ],
      [
-      "Cable lateral raise",
-      "4 × 12–20"
+      "Seated dumbbell shoulder press",
+      "3 × 8–10"
      ],
      [
       "Cable or pec-deck fly",
-      "3 × 12–15"
-     ],
-     [
-      "Lat pulldown",
       "3 × 10–12"
      ],
      [
       "Triceps rope pushdown",
-      "3 × 10–15"
+      "3 × 10–12"
      ]
     ]
    },
    {
-    "title": "Lower + Pull · Squat week",
-    "tag": "Wed · Week 1",
+    "title": "Pull · Week A",
+    "tag": "Tue",
     "rows": [
      [
-      "Back squat",
-      "3 × 5"
-     ],
-     [
-      "Pull-ups (assisted if needed)",
+      "Lat pull down / pullups",
       "4 × 6–10"
      ],
      [
-      "Lying leg curl",
-      "3 × 10–15"
+      "Chest-supported row",
+      "3 × 8–12"
      ],
      [
-      "Dumbbell lateral raise",
-      "3 × 15–20"
+      "Straight-arm cable pulldown",
+      "3 × 10–12"
      ],
      [
       "Rear-delt fly",
-      "3 × 15–20"
+      "3 × 10–12"
      ],
      [
-      "Hanging knee raise or cable crunch",
-      "3 × 10–15"
+      "Dumbbell or EZ-bar curl",
+      "3 × 10–12"
      ]
     ]
    },
    {
-    "title": "Lower + Pull · Deadlift week",
-    "tag": "Wed · Week 2",
+    "title": "Pull · Week B",
+    "tag": "Tue",
     "rows": [
      [
       "Deadlift",
       "3 × 3–5"
      ],
      [
-      "Pull-ups (assisted if needed)",
-      "4 × 6–10"
+      "Lat pull down / pullups",
+      "3 × 6–10"
      ],
      [
-      "Leg press",
-      "3 × 10–15"
-     ],
-     [
-      "Calf raise",
-      "3 × 10–15"
+      "Straight-arm cable pulldown",
+      "3 × 10–12"
      ],
      [
       "Rear-delt fly",
-      "3 × 15–20"
-     ],
-     [
-      "Hanging knee raise or cable crunch",
-      "3 × 10–15"
-     ]
-    ]
-   },
-   {
-    "title": "Upper B",
-    "tag": "Fri · Shoulders",
-    "rows": [
-     [
-      "Standing or seated overhead press",
-      "4 × 5–8"
-     ],
-     [
-      "Cable or dumbbell lateral raise",
-      "4 × 12–20"
-     ],
-     [
-      "Chest press (any variation)",
-      "3 × 8–12"
-     ],
-     [
-      "Pec-deck or cable crossover",
-      "3 × 12–15"
+      "3 × 10–12"
      ],
      [
       "Dumbbell or EZ-bar curl",
       "3 × 10–12"
-     ],
-     [
-      "Tricep (any variation)",
-      "3 × 10–15"
      ]
     ]
    },
    {
-    "title": "Saturday 5 km",
-    "tag": "Cardio",
+    "title": "Legs + extras · Week A",
+    "tag": "Wed",
     "rows": [
      [
-      "Weeks 1–3",
-      "Easy, walk breaks fine"
+      "Back squat",
+      "3 × 5"
      ],
      [
-      "Weeks 4+",
-      "Run it continuously"
+      "Lying leg curl",
+      "3 × 10–12"
+     ],
+     [
+      "Calf raise",
+      "3 × 10–12"
+     ],
+     [
+      "Dumbbell lateral raise",
+      "3 × 10–12"
+     ],
+     [
+      "Hanging knee raise or cable crunch",
+      "3 × 10–12"
+     ]
+    ]
+   },
+   {
+    "title": "Legs + extras · Week B",
+    "tag": "Wed",
+    "rows": [
+     [
+      "Leg press / Leg extension",
+      "3 × 10–12"
+     ],
+     [
+      "Leg curl",
+      "3 × 10–12"
+     ],
+     [
+      "Single arm cable lateral raise",
+      "3 × 10–12"
+     ],
+     [
+      "Calf raise",
+      "3 × 10–12"
+     ],
+     [
+      "Hanging knee raise or cable crunch",
+      "3 × 10–12"
+     ]
+    ]
+   },
+   {
+    "title": "Uppers",
+    "tag": "Fri",
+    "rows": [
+     [
+      "Shoulder press",
+      "4 × 5–8"
+     ],
+     [
+      "Cable lateral raise",
+      "4 × 10–12"
+     ],
+     [
+      "Bench press",
+      "3 × 5–8"
+     ],
+     [
+      "Lat pull down / pullups",
+      "3 × 8–12"
      ]
     ]
    }

@@ -1,9 +1,9 @@
 # Witness the Fitness
 
-A simple training and diet plan app that lives on your phone.
+A simple training plan app that lives on your phone.
 
 - **Your plan, your phone.** Everything is saved on the device you use. No accounts, and nobody else can see or change your plan.
-- **Edit anything.** Tap **Edit plan**, tap any text to change it, add or remove exercises, meals, options and recipes, then **Save**.
+- **Edit anything.** Tap **Edit plan**, tap any text to change it, add or remove exercises and workouts, then **Save**.
 - **Works offline.** Once opened, it works at the gym without signal.
 - **Backups.** **Menu → Export backup** saves your plan as a file. **Restore backup** loads it on another phone.
 

@@ -3,6 +3,8 @@
 
   var STORE_KEY = "wtf-plan-v1";
   var TAB_KEY = "wtf-tab";
+  // Diet and Info are hidden for now; their data stays in each plan so they can come back.
+  var SHOW_DIET_INFO = false;
 
   function esc(t) {
     return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -58,18 +60,20 @@
     function head(path, o, tagKey) {
       return '<div class="card-head">' + f("h3", path + ".title", o.title) + f("span", path + "." + tagKey, o[tagKey], "tag") + "</div>";
     }
-    return { f: f, del: del, cardDel: cardDel, add: add, rows: rows, list: list, head: head };
+    return { E: E, f: f, del: del, cardDel: cardDel, add: add, rows: rows, list: list, head: head };
   }
 
   function renderPlan(S, E) {
     var h = make(E), f = h.f;
     var out = '<div class="wrap' + (E ? " editing" : "") + '">';
     out += '<header class="top">' + f("div", "eyebrow", S.eyebrow, "eyebrow") + f("h1", "title", S.title) + f("p", "subtitle", S.subtitle, "sub") + "</header>";
-    out += '<input type="radio" name="tab" id="r-workout" class="tab-radio" checked>' +
-      '<input type="radio" name="tab" id="r-diet" class="tab-radio">' +
-      '<input type="radio" name="tab" id="r-info" class="tab-radio">' +
-      '<nav class="tabs" aria-label="Plan sections"><label for="r-workout" id="tab-workout">Workout</label>' +
-      '<label for="r-diet" id="tab-diet">Diet</label><label for="r-info" id="tab-info">Info</label></nav>';
+    out += '<input type="radio" name="tab" id="r-workout" class="tab-radio" checked>';
+    if (SHOW_DIET_INFO) {
+      out += '<input type="radio" name="tab" id="r-diet" class="tab-radio">' +
+        '<input type="radio" name="tab" id="r-info" class="tab-radio">' +
+        '<nav class="tabs" aria-label="Plan sections"><label for="r-workout" id="tab-workout">Workout</label>' +
+        '<label for="r-diet" id="tab-diet">Diet</label><label for="r-info" id="tab-info">Info</label></nav>';
+    }
 
     // Workout
     out += '<section class="panel" id="workout"><div class="block"><h2>Your week</h2><div class="week">';
@@ -83,6 +87,15 @@
       out += '<div class="card">' + h.head(p, s, "tag") + h.rows(p + ".rows", s.rows) + h.cardDel(p, "workout") + "</div>";
     });
     out += h.add("sessions", "session", "Add workout") + "</section>";
+    if (SHOW_DIET_INFO) out += renderDietInfo(S, h);
+
+    if (E) out += '<div class="edit-bar"><span class="ed-hint">Tap any text to change it</span><button type="button" id="cancel-btn" class="ghost">Cancel</button><button type="button" id="save-btn">Save</button></div>';
+    else out += '<div class="edit-bar"><button type="button" id="menu-btn" class="ghost" aria-expanded="false">Menu</button><button type="button" id="edit-btn">Edit plan</button></div>';
+    return out + "</div>";
+  }
+
+  function renderDietInfo(S, h) {
+    var f = h.f, E = h.E, out = "";
 
     // Diet
     out += '<section class="panel" id="diet"><div class="block"><h2>Daily targets</h2><div class="tiles">';
@@ -117,19 +130,15 @@
     });
     out += "</div>" + f("p", "infoNote", S.infoNote, "small muted") + "</div>";
     if (S.tracking.length || E) out += '<div class="card"><h3>Tracking</h3>' + h.list("ul", "items", "tracking", S.tracking, "Add item") + "</div>";
-    out += "</section>";
-
-    if (E) out += '<div class="edit-bar"><span class="ed-hint">Tap any text to change it</span><button type="button" id="cancel-btn" class="ghost">Cancel</button><button type="button" id="save-btn">Save</button></div>';
-    else out += '<div class="edit-bar"><button type="button" id="menu-btn" class="ghost" aria-expanded="false">Menu</button><button type="button" id="edit-btn">Edit plan</button></div>';
-    return out + "</div>";
+    return out + "</section>";
   }
 
   function renderWelcome() {
     return '<div class="wrap"><div class="welcome">' +
-      '<div class="eyebrow">Your training &amp; diet plan</div><h1>Witness the Fitness</h1>' +
+      '<div class="eyebrow">Your training plan</div><h1>Witness the Fitness</h1>' +
       '<p class="sub">Your plan is saved on this phone. Nobody else can see or change it.</p>' +
       '<div class="choices">' +
-      '<button type="button" class="choice" data-start="example"><b>Use the example plan</b><span>A 3-day gym split, a simple daily menu and recipes. Edit anything after.</span></button>' +
+      '<button type="button" class="choice" data-start="example"><b>Use the example plan</b><span>A push, pull, legs and uppers split with a weekly run. Edit anything after.</span></button>' +
       '<button type="button" class="choice" data-start="blank"><b>Start blank</b><span>Build your own plan from scratch.</span></button>' +
       '<label class="choice"><b>Restore a backup</b><span>Load a plan you exported earlier.</span><input type="file" accept="application/json,.json" class="visually-hidden" id="welcome-import"></label>' +
       "</div></div></div>";
