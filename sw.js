@@ -1,5 +1,5 @@
 // Offline support: serve the app from cache, refresh the cache in the background.
-const CACHE = "wtf-v6";
+const CACHE = "wtf-v7";
 const FILES = ["./", "index.html", "styles.css", "app.js", "templates.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
