@@ -1,9 +1,14 @@
-// Offline support: serve the app from cache, refresh the cache in the background.
-const CACHE = "wtf-v7";
+// Offline support: always try the network first so updates show straight away,
+// and fall back to the cached copy when there's no signal.
+const CACHE = "wtf-v8";
 const FILES = ["./", "index.html", "styles.css", "app.js", "templates.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then((c) => c.addAll(FILES.map((f) => new Request(f, { cache: "reload" }))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener("activate", (e) => {
@@ -14,17 +19,16 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
+  const sameOrigin = new URL(e.request.url).origin === location.origin;
   e.respondWith(
-    caches.open(CACHE).then((cache) =>
-      cache.match(e.request).then((hit) => {
-        const fresh = fetch(e.request)
-          .then((res) => {
-            if (res.ok && new URL(e.request.url).origin === location.origin) cache.put(e.request, res.clone());
-            return res;
-          })
-          .catch(() => hit);
-        return hit || fresh;
+    fetch(sameOrigin ? new Request(e.request.url, { cache: "no-cache" }) : e.request)
+      .then((res) => {
+        if (res.ok && sameOrigin) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(e.request, copy));
+        }
+        return res;
       })
-    )
+      .catch(() => caches.match(e.request, { ignoreSearch: true }))
   );
 });

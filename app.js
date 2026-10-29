@@ -345,5 +345,12 @@
 
   if ("serviceWorker" in navigator && location.protocol === "https:") {
     navigator.serviceWorker.register("sw.js").catch(function () {});
+    // When a new version takes over, reload once so it shows straight away.
+    var hadController = !!navigator.serviceWorker.controller, reloaded = false;
+    navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if (!hadController || reloaded || editing) return;
+      reloaded = true;
+      location.reload();
+    });
   }
 })();
