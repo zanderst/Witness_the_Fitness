@@ -138,9 +138,8 @@
       '<div class="eyebrow">Your training plan</div><h1>Witness the Fitness</h1>' +
       '<p class="sub">Your plan is saved on this phone. Nobody else can see or change it.</p>' +
       '<div class="choices">' +
-      '<button type="button" class="choice" data-start="example"><b>Use the example plan</b><span>A push, pull, legs and uppers split with a weekly run. Edit anything after.</span></button>' +
+      '<button type="button" class="choice" data-start="example"><b>Push pull legs split</b><span>Push, pull, legs and uppers with a weekly run. Edit anything after.</span></button>' +
       '<button type="button" class="choice" data-start="blank"><b>Start blank</b><span>Build your own plan from scratch.</span></button>' +
-      '<label class="choice"><b>Restore a backup</b><span>Load a plan you exported earlier.</span><input type="file" accept="application/json,.json" class="visually-hidden" id="welcome-import"></label>' +
       "</div></div></div>";
   }
 
@@ -335,7 +334,6 @@
         mount();
       };
     });
-    document.getElementById("welcome-import").onchange = function (e) { importPlan(e.target.files[0]); };
   }
 
   document.addEventListener("click", function (e) {
