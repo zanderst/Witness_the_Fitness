@@ -1,9 +1,9 @@
 // Starting plans offered on first open.
 window.PLAN_TEMPLATES = {
  "example": {
-  "eyebrow": "Example plan",
-  "title": "Phase 1 - Cut",
-  "subtitle": "Fat loss & muscle gain",
+  "eyebrow": "",
+  "title": "Push pull legs split",
+  "subtitle": "",
   "week": [
    {
     "day": "Mon",
@@ -41,7 +41,7 @@ window.PLAN_TEMPLATES = {
     "kind": "rest"
    }
   ],
-  "weekNote": "Alternate Week A and Week B. Week A is squat week, Week B is deadlift and leg press week. Warm up each session with a 10 min incline walk: 10–12%, 4.5–6 km/h / 2.8–3.7 mph.",
+  "weekNote": "Alternate Week A and Week B. Week A is squat week, Week B is deadlift and leg press week. Warm up each session on the incline treadmill.",
   "sessions": [
    {
     "title": "Push",
@@ -192,6 +192,16 @@ window.PLAN_TEMPLATES = {
      [
       "Lat pull down / pullups",
       "3 × 8–12"
+     ]
+    ]
+   },
+   {
+    "title": "5 km run",
+    "tag": "Sat · Cardio",
+    "rows": [
+     [
+      "5 km run",
+      "Steady pace"
      ]
     ]
    }
@@ -454,9 +464,9 @@ window.PLAN_TEMPLATES = {
   ]
  },
  "upperLower": {
-  "eyebrow": "Example plan",
-  "title": "Phase 1 - Cut",
-  "subtitle": "Fat loss & muscle gain",
+  "eyebrow": "",
+  "title": "Upper lower split",
+  "subtitle": "",
   "week": [
    {
     "day": "Mon",
@@ -494,7 +504,7 @@ window.PLAN_TEMPLATES = {
     "kind": "rest"
    }
   ],
-  "weekNote": "Warm up each session with a 10 min incline walk (10–12%, 4.5–6 km/h / 2.8–3.7 mph).",
+  "weekNote": "Warm up each session on the incline treadmill.",
   "sessions": [
    {
     "title": "Upper A",

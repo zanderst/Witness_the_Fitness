@@ -1,6 +1,6 @@
 // Offline support: always try the network first so updates show straight away,
 // and fall back to the cached copy when there's no signal.
-const CACHE = "wtf-v8";
+const CACHE = "wtf-v9";
 const FILES = ["./", "index.html", "styles.css", "app.js", "templates.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {

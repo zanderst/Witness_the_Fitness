@@ -84,7 +84,10 @@
     out += "</div>" + f("p", "weekNote", S.weekNote, "small muted") + "</div>";
     S.sessions.forEach(function (s, i) {
       var p = "sessions." + i;
-      out += '<div class="card">' + h.head(p, s, "tag") + h.rows(p + ".rows", s.rows) + h.cardDel(p, "workout") + "</div>";
+      var moves = E ? '<div class="ed-moves">' +
+        '<button type="button" class="ed-move" data-move="' + i + '" data-dir="-1"' + (i === 0 ? " disabled" : "") + ">↑ Move up</button>" +
+        '<button type="button" class="ed-move" data-move="' + i + '" data-dir="1"' + (i === S.sessions.length - 1 ? " disabled" : "") + ">↓ Move down</button></div>" : "";
+      out += '<div class="card">' + h.head(p, s, "tag") + h.rows(p + ".rows", s.rows) + moves + h.cardDel(p, "workout") + "</div>";
     });
     out += h.add("sessions", "session", "Add workout") + "</section>";
     if (SHOW_DIET_INFO) out += renderDietInfo(S, h);
@@ -225,6 +228,15 @@
       b.onclick = function () {
         pullEdits();
         getP(state, b.getAttribute("data-add")).push(NEW[b.getAttribute("data-kind")]());
+        mount();
+      };
+    });
+    document.querySelectorAll("[data-move]").forEach(function (b) {
+      b.onclick = function () {
+        pullEdits();
+        var i = +b.getAttribute("data-move"), j = i + +b.getAttribute("data-dir"), list = state.sessions;
+        if (j < 0 || j >= list.length) return;
+        var t = list[i]; list[i] = list[j]; list[j] = t;
         mount();
       };
     });

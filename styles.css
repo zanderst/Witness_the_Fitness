@@ -121,11 +121,15 @@ li.item .ed-del{margin-left:6px}
 .editing .day [contenteditable]{display:block}
 .ed-add{align-self:flex-start;font:600 13px/1 var(--body);color:var(--blue);background:none;border:1px dashed var(--blue);border-radius:6px;padding:7px 10px;cursor:pointer}
 .ed-del{font:600 15px/1 var(--body);color:var(--red);background:var(--red-soft);border:0;border-radius:50%;width:24px;height:24px;cursor:pointer;flex:none}
-@media print{.edit-bar,.ed-add,.ed-del{display:none!important}}
+@media print{.edit-bar,.ed-add,.ed-del,.ed-moves{display:none!important}}
 
 /* App additions */
 body{background:var(--bg)}
 .ed-card-del{align-self:flex-end;font:600 12px/1 var(--body);color:var(--red);background:var(--red-soft);border:0;border-radius:6px;padding:7px 10px;cursor:pointer}
+.ed-moves{display:flex;gap:6px;flex-wrap:wrap}
+.ed-move{font:600 12px/1 var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 10px;cursor:pointer}
+.ed-move:disabled{opacity:.35;cursor:default}
+.ed-move:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .ed-kind{font:600 11px/1 var(--body);letter-spacing:.04em;text-transform:uppercase;border:1px dashed var(--muted);background:none;color:var(--muted);border-radius:5px;padding:4px 2px;cursor:pointer;width:100%}
 .menu{position:fixed;left:16px;right:16px;bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:11;max-width:420px;margin-left:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .menu button,.menu label{font:500 15px/1.2 var(--body);text-align:left;background:none;border:0;color:var(--ink);padding:12px;border-radius:8px;cursor:pointer}
