@@ -139,6 +139,7 @@
       '<p class="sub">Your plan is saved on this phone. Nobody else can see or change it.</p>' +
       '<div class="choices">' +
       '<button type="button" class="choice" data-start="example"><b>Push pull legs split</b><span>Push, pull, legs and uppers with a weekly run. Edit anything after.</span></button>' +
+      '<button type="button" class="choice" data-start="upperLower"><b>Upper lower split</b><span>Two upper days, a lower and pull day and a weekly run. Edit anything after.</span></button>' +
       '<button type="button" class="choice" data-start="blank"><b>Start blank</b><span>Build your own plan from scratch.</span></button>' +
       "</div></div></div>";
   }
